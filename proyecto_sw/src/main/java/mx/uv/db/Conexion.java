@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Conexion {
     private String url = "jdbc:mysql://localhost/cuestionarios";
     private String username = "root";
-    private String password = "";
+    private String password = "root";
     private String driverName = "com.mysql.jdbc.Driver";
     private Connection conn = null;
 

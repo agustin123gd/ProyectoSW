@@ -1,7 +1,7 @@
 package mx.uv;
 import com.google.gson.*;
 import static spark.Spark.*;
-import mx.uv.db.DAO;
+import mx.uv.db.UsuarioDAO;
 import java.util.UUID;
 import mx.uv.db.Usuario;
 
@@ -15,22 +15,6 @@ public class App
     public static void main( String[] args )
     {
         
-        options("/*", (request, response) -> {
-
-            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
-            if (accessControlRequestHeaders != null) {
-                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
-            }
-
-            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
-            if (accessControlRequestMethod != null) {
-                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
-            }
-
-            return "OK";
-        });
-        
-        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
         get("/", (req, res) -> {
             return null;
         });
@@ -41,7 +25,7 @@ public class App
             Usuario u = gson.fromJson(json, Usuario.class);
             //usuarios.put(id, u);
 
-            DAO dao = new DAO();
+            UsuarioDAO dao = new UsuarioDAO();
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("status", dao.insertarUsuario(u));
             return respuesta;
@@ -49,7 +33,7 @@ public class App
         
         get("/usuarios", (req, res) -> {
             before((req2, res2) -> res.type("application/json"));
-            DAO dao = new DAO();
+            UsuarioDAO dao = new UsuarioDAO();
             return gson.toJson(dao.listadoUsuario());
         });
         

@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAO {
+public class UsuarioDAO {
     private Conexion conexion = new Conexion();
 
     public String insertarUsuario(Usuario u) {
