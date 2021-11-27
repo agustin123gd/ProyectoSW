@@ -56,11 +56,11 @@ public class RespuestaAlumnoDAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT * FROM respuestaAlumno";
+            String sql = "SELECT pregunta.pregunta, respuesta FROM respuestaAlumno inner join pregunta on respuestaAlumno.idPregunta = pregunta.id";
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){
-                RespuestaAlumno ra = new RespuestaAlumno(rs.getInt("id"), rs.getInt("idPregunta"), rs.getString("respuesta"),rs.getInt("idUsuario"));
+                RespuestaAlumno ra = new RespuestaAlumno(rs.getString("pregunta"), rs.getString("respuesta"));
                 resultado.add(ra);
             }
         } catch (Exception e) {

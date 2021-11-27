@@ -1,8 +1,14 @@
 package mx.uv;
 import com.google.gson.*;
+import com.mysql.jdbc.Connection;
+
 import static spark.Spark.*;
 import mx.uv.db.UsuarioDAO;
 import java.util.UUID;
+
+import mx.uv.db.Conexion;
+import mx.uv.db.RespuestaAlumno;
+import mx.uv.db.RespuestaAlumnoDAO;
 import mx.uv.db.Usuario;
 
 /**
@@ -36,6 +42,22 @@ public class App
             UsuarioDAO dao = new UsuarioDAO();
             return gson.toJson(dao.listadoUsuario());
         });
-        
+
+        get("/resultados",(req,res)->{
+            before((req2, res2) -> res.type("application/json"));
+            RespuestaAlumnoDAO dao = new RespuestaAlumnoDAO();
+            return gson.toJson(dao.listadoRespuestas());
+        });
+
+        get("/conn",(req,res)->{
+            Conexion conexion = new Conexion();
+            Connection conn = null;
+            conn = (Connection) conexion.getConnection();
+            if(conn != null){
+                return "nice";
+            }else{
+                return 1;
+            }
+        });
     }
 }

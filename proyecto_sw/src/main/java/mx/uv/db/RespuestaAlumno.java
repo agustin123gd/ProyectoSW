@@ -3,13 +3,26 @@ package mx.uv.db;
 public class RespuestaAlumno {
     private int id;
     private int idPregunta;
+    private String pregunta;
     private String respuesta;
     private int idUsuario;
+
+    public RespuestaAlumno(String pregunta, String respuesta) {
+        this.pregunta = pregunta;
+        this.respuesta = respuesta;
+    }
+
     public RespuestaAlumno(int id, int idPregunta, String respuesta, int idUsuario) {
         this.id = id;
         this.idPregunta = idPregunta;
         this.respuesta = respuesta;
         this.idUsuario = idUsuario;
+    }
+    public String getPregunta() {
+        return pregunta;
+    }
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
     public int getId() {
         return id;
