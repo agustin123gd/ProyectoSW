@@ -14,6 +14,11 @@ btnRegistrar.addEventListener("click", () => {
         })
 });
 
+var btnIniciar = document.getElementById("btnIniciar");
+btnIniciar.addEventListener("click",function(){
+    window.location.replace("/incio.html");
+})
+
 var btnLista = document.getElementById("btnLista");
 btnLista.addEventListener("click", function () {
     axios.get("http://localhost:4567/usuarios")
