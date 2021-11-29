@@ -3,18 +3,21 @@
         let json = res.data;
         let tablaRespuestas = document.getElementById("tablaRespuestas");
         for (var clave in json) {
-            // Controlando que json realmente tenga esa propiedad
             if (json.hasOwnProperty(clave)) {
-                // Mostrando en pantalla la clave junto a su valor
-                // alert("La clave es " + clave + " y el valor es " + json[clave]);
+                var num =1;
                 let fila = document.createElement("tr");
-                fila.textContent = 
-                    `<td scope="row">`+ clave+`</td>
-                    <td>`+json[clave].correo+`</td>
-                    <td>`+json[clave].correo+`</td>`
-                tablaRespuestas.appendChild(tarea);
-
-
+                var col1 = document.createElement("th");
+                col1.innerHTML = num;
+                var col2 = document.createElement("td");
+                col2.innerHTML = json[clave].pregunta;
+                var col3 = document.createElement("td");
+                col3.innerHTML = json[clave].respuesta;
+                
+                tablaRespuestas.appendChild(fila);
+                fila.appendChild(col1);
+                fila.appendChild(col2);
+                fila.appendChild(col3);
+                num = num +1;
             }
         }
     })

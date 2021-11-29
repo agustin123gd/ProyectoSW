@@ -1,13 +1,10 @@
 package mx.uv;
 import com.google.gson.*;
-import com.mysql.jdbc.Connection;
 
 import static spark.Spark.*;
 import mx.uv.db.UsuarioDAO;
-import java.util.UUID;
-
-import mx.uv.db.Conexion;
-import mx.uv.db.RespuestaAlumno;
+import mx.uv.db.AsignacionDAO;
+import mx.uv.db.CuestionarioDAO;
 import mx.uv.db.RespuestaAlumnoDAO;
 import mx.uv.db.Usuario;
 
@@ -20,6 +17,23 @@ public class App
     private static Gson gson = new Gson();
     public static void main( String[] args )
     {
+        options("/*", (request, response) -> {
+
+            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+            }
+
+            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+            }
+
+            return "OK";
+        });
+
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
         
         get("/", (req, res) -> {
             return null;
@@ -49,15 +63,15 @@ public class App
             return gson.toJson(dao.listadoRespuestas());
         });
 
-        get("/conn",(req,res)->{
-            Conexion conexion = new Conexion();
-            Connection conn = null;
-            conn = (Connection) conexion.getConnection();
-            if(conn != null){
-                return "nice";
-            }else{
-                return 1;
-            }
+        get("/cuestionarios",(req,res)->{
+            before((req2, res2) -> res.type("application/json"));
+            CuestionarioDAO dao = new CuestionarioDAO();
+            return gson.toJson(dao.listadoCuestionario());
+        });
+        get("/asignacion",(req,res)->{
+            before((req2, res2) -> res.type("application/json"));
+            AsignacionDAO dao = new AsignacionDAO();
+            return gson.toJson(dao.listadoAsignacion());
         });
     }
 }

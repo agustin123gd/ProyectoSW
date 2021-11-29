@@ -54,11 +54,11 @@ public class CuestionarioDAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT * FROM cuestionario";
+            String sql = "SELECT id, nombre FROM cuestionario where creador = 'Agustin Gutierrez Diaz'";
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){
-                Cuestionario c = new Cuestionario(rs.getInt("id"), rs.getString("nombre"), rs.getString("creador"));
+                Cuestionario c = new Cuestionario(rs.getInt("id"), rs.getString("nombre"), "");
                 resultado.add(c);
             }
         } catch (Exception e) {

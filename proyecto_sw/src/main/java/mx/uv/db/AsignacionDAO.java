@@ -46,4 +46,47 @@ public class AsignacionDAO {
         }
         return msj;
     }
+
+    public List<Asignacion> listadoAsignacion() {
+        Statement stm = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        List<Asignacion> resultado = new ArrayList<>(); 
+
+        conn = conexion.getConnection();
+        try {
+            String sql = "SELECT asignacion.id, usuario.nombre, asignacion.estado From asignacion Inner JOIN usuario on asignacion.idUsuario = usuario.id";
+            stm = conn.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()){
+                Asignacion a = new Asignacion(rs.getInt("id"), rs.getString("nombre"), rs.getString("estado"));
+                resultado.add(a);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (stm != null){
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    stm = null;
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    rs = null;
+                    e.printStackTrace();
+                }
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return resultado;
+    }
 }

@@ -1,0 +1,25 @@
+digraph "mx.uv:proyecto_sw:jar:1.0-SNAPSHOT" { 
+	"mx.uv:proyecto_sw:jar:1.0-SNAPSHOT" -> "junit:junit:jar:4.11:test" ; 
+	"mx.uv:proyecto_sw:jar:1.0-SNAPSHOT" -> "com.sparkjava:spark-core:jar:2.9.3:compile" ; 
+	"mx.uv:proyecto_sw:jar:1.0-SNAPSHOT" -> "org.slf4j:slf4j-simple:jar:1.7.21:compile" ; 
+	"mx.uv:proyecto_sw:jar:1.0-SNAPSHOT" -> "com.google.code.gson:gson:jar:2.8.6:compile" ; 
+	"mx.uv:proyecto_sw:jar:1.0-SNAPSHOT" -> "mysql:mysql-connector-java:jar:8.0.27:compile" ; 
+	"junit:junit:jar:4.11:test" -> "org.hamcrest:hamcrest-core:jar:1.3:test" ; 
+	"com.sparkjava:spark-core:jar:2.9.3:compile" -> "org.slf4j:slf4j-api:jar:1.7.25:compile" ; 
+	"com.sparkjava:spark-core:jar:2.9.3:compile" -> "org.eclipse.jetty:jetty-server:jar:9.4.31.v20200723:compile" ; 
+	"com.sparkjava:spark-core:jar:2.9.3:compile" -> "org.eclipse.jetty:jetty-webapp:jar:9.4.31.v20200723:compile" ; 
+	"com.sparkjava:spark-core:jar:2.9.3:compile" -> "org.eclipse.jetty.websocket:websocket-server:jar:9.4.31.v20200723:compile" ; 
+	"com.sparkjava:spark-core:jar:2.9.3:compile" -> "org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty:jetty-server:jar:9.4.31.v20200723:compile" -> "javax.servlet:javax.servlet-api:jar:3.1.0:compile" ; 
+	"org.eclipse.jetty:jetty-server:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-http:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty:jetty-server:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-io:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty:jetty-http:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-util:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty:jetty-webapp:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-xml:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty:jetty-webapp:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-servlet:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty:jetty-servlet:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-security:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty.websocket:websocket-server:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty.websocket:websocket-common:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty.websocket:websocket-server:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty.websocket:websocket-client:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty.websocket:websocket-client:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty:jetty-client:jar:9.4.31.v20200723:compile" ; 
+	"org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.31.v20200723:compile" -> "org.eclipse.jetty.websocket:websocket-api:jar:9.4.31.v20200723:compile" ; 
+	"mysql:mysql-connector-java:jar:8.0.27:compile" -> "com.google.protobuf:protobuf-java:jar:3.11.4:compile" ; 
+ } 
