@@ -16,16 +16,13 @@ h1 {
 }
 
 .titulo {
-    overflow: hidden;
-    border: 5px solid #9bd80c;
-    width: 70%;
-    max-width: 650px;
-    border: 5px solid #9bd80c;
-    margin: 25px auto;
-    /*background-color: #ebf55c;*/
-    padding: 10px 0;
+    text-transform: uppercase;
     text-align: center;
-    font-family: 'Spartan', sans-serif;
+    margin-bottom: 30px;
+    color: #FF8F00;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 1px;
 }
 
 ::placeholder {
