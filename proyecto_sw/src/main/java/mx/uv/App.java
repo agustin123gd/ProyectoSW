@@ -2,7 +2,6 @@ package mx.uv;
 import com.google.gson.*;
 import static spark.Spark.*;
 import mx.uv.db.DAO;
-import java.util.UUID;
 import mx.uv.db.Usuario;
 
 /**
@@ -51,6 +50,24 @@ public class App
             before((req2, res2) -> res.type("application/json"));
             DAO dao = new DAO();
             return gson.toJson(dao.listadoUsuario());
+        });
+
+
+        get("/validar", (rq, rs) -> {
+            DAO dao = new DAO();
+            Usuario u;
+            String correo = rq.queryParams("correo");
+            String contraseña = rq.queryParams("contraseña");
+            String tipo = rq.queryParams("tipo");
+            u = dao.BuscarUsuario(correo);
+                if(u != null){
+                    if (contraseña.equals(String.valueOf(u.getContraseña()))) {
+                        System.out.println("Existe el Alumno");
+                    } else {
+                        System.out.println("No existe el Alumno");
+                    }
+                }
+            return null;
         });
         
     }

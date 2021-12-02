@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>LOGIN</title>
+  <link rel="stylesheet" href="./inicio.css">
+
 </head>
-
 <body>
-    <form action="">
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+	<div class="container">
+		<h1>INICIA SESIÓN</h1>
+		
+		<form class="form">
+			<form action="">
+			<input type="text" name="" id="correo" placeholder="Correo">
+			<input type="password" name="" id="contraseña" placeholder="Contraseña">
+			<button type="submit" id="login-button">Iniciar Sesion</button>
+			</form>
+		</form>	
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./inicio.js"></script>
 
-            <h5>INICIA SESIÓN</h5>
-            <div class = 'padre'>
-                <input type="text" name="" id="correo" placeholder="correo">
-            </div>
-            <div>
-                <input type="password" name="" id="contraseña" placeholder="contraseña">
-            </div>
-            <div>
-                <button type="button" class="btn btn-primary" id="btnIniciar" style= "background-color:rgba(37, 223, 108, 0.856)">Iniciar Sesión</button>
-             </div>
-        
-    </form>
-
-    <span>
-        <ul id="usuarios"></ul>
-    </span>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="inicio.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
-
 </html>

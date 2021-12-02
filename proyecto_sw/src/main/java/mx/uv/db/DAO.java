@@ -10,6 +10,31 @@ import java.util.List;
 public class DAO {
     private Conexion conexion = new Conexion();
 
+    public Usuario BuscarUsuario(String correo){
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        conn = conexion.getConnection();
+        System.out.println(conn);
+        try{
+            String sql = "SELECT * FROM usuario WHERE correo = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, correo);
+            rs = stm.executeQuery();
+            //rs = stm.executeQuery(sql);
+            while (rs.next()){
+                System.out.println("dentro");
+                Usuario u = new Usuario(rs.getString("id"), rs.getString("nombre"), rs.getString("correo"), rs.getString("contraseña"), rs.getString("tipo"));
+                System.out.println("********************************" +u.getNombre() + "********************************");
+                return u;
+            }
+            return null;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public String insertarUsuario(Usuario u) {
         Connection conn = null;
         PreparedStatement prestm = null;
@@ -56,7 +81,7 @@ public class DAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT * FROM usuarios";
+            String sql = "SELECT * FROM usuario";
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){
