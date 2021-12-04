@@ -1,4 +1,9 @@
-    axios.get("http://localhost:4567/resultados")
+var querystring = window.location.search;
+var parametros = new URLSearchParams(querystring);
+
+idCuestionarios= parametros.get("Cuestionario");
+idUsuario = parametros.get("Usuario");    
+axios.get("http://localhost:4567/resultados?idUsuario=" + idUsuario + "&idCuestionario="+idCuestionarios)
     .then(function (res) {
         let json = res.data;
         let tablaRespuestas = document.getElementById("tablaRespuestas");

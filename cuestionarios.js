@@ -11,7 +11,7 @@ axios.get("http://localhost:4567/cuestionarios")
                 var col2 = document.createElement("td");
                 col2.innerHTML = json[clave].nombre;
                 var col3 = document.createElement("td");
-                col3.innerHTML = `<a style="float: right;" type="button" value="`+ json[clave].id+`" id="lista" class="btn btn-success">Revisar</a>`
+                col3.innerHTML = `<a style="float: right;" type="button" onclick="botonLista(`+json[clave].id+`,\``+json[clave].nombre+`\`)" id="lista" class="btn btn-success">Revisar</a>`
 
                 tablaRespuestas.appendChild(fila);
                 fila.appendChild(col1);
@@ -20,10 +20,11 @@ axios.get("http://localhost:4567/cuestionarios")
                 num = num +1;
             }
         }
-    })
+    }) 
 
-var revisarCuestionario = document.getElementById("lista");
-revisarCuestionario.addEventListener("click",function(){
-    var id = revisarCuestionario.getAttribute("value");
-    window.location.replace("/lista.html");
-});
+function botonLista(id,nombre){
+    let params = new URLSearchParams();
+    params.append("idCuestionario", id);
+    params.append("nombre", nombre);
+    window.location= "http://127.0.0.1:5500/lista.html?" + params; 
+}

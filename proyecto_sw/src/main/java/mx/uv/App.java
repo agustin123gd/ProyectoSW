@@ -3,6 +3,7 @@ import com.google.gson.*;
 
 import static spark.Spark.*;
 import mx.uv.db.UsuarioDAO;
+import mx.uv.db.Asignacion;
 import mx.uv.db.AsignacionDAO;
 import mx.uv.db.CuestionarioDAO;
 import mx.uv.db.RespuestaAlumnoDAO;
@@ -60,7 +61,7 @@ public class App
         get("/resultados",(req,res)->{
             before((req2, res2) -> res.type("application/json"));
             RespuestaAlumnoDAO dao = new RespuestaAlumnoDAO();
-            return gson.toJson(dao.listadoRespuestas());
+            return gson.toJson(dao.listadoRespuestas(Integer.parseInt(req.queryParams("idUsuario")),Integer.parseInt(req.queryParams("idCuestionario"))));
         });
 
         get("/cuestionarios",(req,res)->{
@@ -71,7 +72,8 @@ public class App
         get("/asignacion",(req,res)->{
             before((req2, res2) -> res.type("application/json"));
             AsignacionDAO dao = new AsignacionDAO();
-            return gson.toJson(dao.listadoAsignacion());
+            return gson.toJson(dao.listadoAsignacion(Integer.parseInt(req.queryParams("idCuestionario"))));
         });
+        
     }
 }

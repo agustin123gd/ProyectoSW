@@ -47,7 +47,7 @@ public class AsignacionDAO {
         return msj;
     }
 
-    public List<Asignacion> listadoAsignacion() {
+    public List<Asignacion> listadoAsignacion(int id) {
         Statement stm = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -55,7 +55,7 @@ public class AsignacionDAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT asignacion.id, usuario.nombre, asignacion.estado From asignacion Inner JOIN usuario on asignacion.idUsuario = usuario.id";
+            String sql = "SELECT usuario.id, usuario.nombre, asignacion.estado From asignacion Inner JOIN usuario on asignacion.idUsuario = usuario.id WHERE asignacion.idCuestionario=" + id;
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){

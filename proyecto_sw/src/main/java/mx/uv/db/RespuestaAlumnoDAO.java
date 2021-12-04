@@ -48,7 +48,7 @@ public class RespuestaAlumnoDAO {
         return msj;
     }
 
-    public List<RespuestaAlumno> listadoRespuestas() {
+    public List<RespuestaAlumno> listadoRespuestas( int idUsuario,int idCuestionario) {
         Statement stm = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -56,7 +56,7 @@ public class RespuestaAlumnoDAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT pregunta.pregunta, respuesta FROM respuestaAlumno inner join pregunta on respuestaAlumno.idPregunta = pregunta.id";
+            String sql = "SELECT pregunta.pregunta, respuesta FROM respuestaAlumno inner join pregunta on respuestaAlumno.idPregunta = pregunta.id where idUsuario="+ idUsuario +" and idCuestionario="+idCuestionario;
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){
