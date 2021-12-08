@@ -75,5 +75,10 @@ public class App
             return gson.toJson(dao.listadoAsignacion(Integer.parseInt(req.queryParams("idCuestionario"))));
         });
         
+        get("/asignacionPorUsuario",(req,res)->{
+            before((req2, res2) -> res.type("application/json"));
+            AsignacionDAO dao = new AsignacionDAO();
+            return gson.toJson(dao.asignacionPorUsuario(Integer.parseInt(req.queryParams("idUsuario"))));
+        });
     }
 }

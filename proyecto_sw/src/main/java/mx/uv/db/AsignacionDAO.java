@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.JsonElement;
+
 public class AsignacionDAO {
     private Conexion conexion = new Conexion();
 
@@ -60,6 +62,49 @@ public class AsignacionDAO {
             rs = stm.executeQuery(sql);
             while (rs.next()){
                 Asignacion a = new Asignacion(rs.getInt("id"), rs.getString("nombre"), rs.getString("estado"));
+                resultado.add(a);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (stm != null){
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    stm = null;
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null){
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    rs = null;
+                    e.printStackTrace();
+                }
+            }
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return resultado;
+    }
+
+    public List<Asignacion> asignacionPorUsuario(int id) {
+        Statement stm = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        List<Asignacion> resultado = new ArrayList<>(); 
+
+        conn = conexion.getConnection();
+        try {
+            String sql = "select cuestionario.id, cuestionario.nombre From Cuestionario inner join asignacion on Cuestionario.id = asignacion.idCuestionario where asignacion.idUsuario ="+id+" and asignacion.estado = 'Pendiente'";
+            stm = conn.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()){
+                Asignacion a = new Asignacion(rs.getInt("id"), rs.getString("nombre"),null);
                 resultado.add(a);
             }
         } catch (Exception e) {
