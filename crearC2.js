@@ -1,17 +1,15 @@
 const nuevaPregunta = document.querySelector('input');
 
+const input = document.createElement('input');
+input.textContent = 'Prueba';
+nuevaPregunta.appendChild(input);
+
 function seleccionar(){
   let sel = document.getElementById('select');
   let elegido = sel.value;
 
   document.getElementById('Seleccionado').innerText = `Ud. ha seleccionado pregunta ${elegido}.`;
 
-}
-
-function preguntaAbierta(){
-  input.textContent = 'Prueba';
-  const input = document.createElement('input');
-  nuevaPregunta.appendChild(input);
 }
 
 /*function agregarPregunta(){
