@@ -33,7 +33,7 @@
 
        <form>
            <div class="botones">
-                <button id="agregar" onclick="preguntaAbierta()" class="btn btn-default">Agregar pregunta</button>
+                <button id="agregar" class="btn btn-default">Agregar pregunta</button>
            </div>
        </form> 
     </div>
@@ -44,10 +44,11 @@
             <p>
                 <input type="text" style="width:400px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
                 <select name="select" id="select" onchange="seleccionar();">
-                    <option value="value1">Pregunta abierta</option>
-                    <option value="value2" selected>Opción múltiple</option>
+                    <option id="op1" value="abierta">Pregunta abierta</option>
+                    <option id="op2" value="opcionMultiple">Opción múltiple</option>
                 </select>
                 <span id="Seleccionado"></span>
+
             <div class="preguntamulti">
                 <p>
                     <input type="radio" id="radio1" name="radio" value="Opcion1"> Opción 1<br>
@@ -56,14 +57,14 @@
                 </p>
                 
             </div>
-           <!-- <div class="preguntaabierta">
+            <div class="preguntaabierta">
                 <p>
                     <input type="text" style="width:370px;height:20px" name="respAbierta" class="form-control" id="respAbierta" placeholder="Escribe aquí la respuesta" required>
                 </p>
             </div>
-        </div> -->
+        </div>
 
-        <!-- <div class="contenido">
+     <div class="contenido">
             <p>
                 <input type="text" style="width:370px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
                 <select name="select" id="select">
@@ -72,14 +73,14 @@
                 </select>
             </p>
            
-        </div>  -->
+        </div>
 
         <div class="botones">
             <button type="button" id="enviar" class="btn btn-primary btn-lg"> Enviar </button> 
         </div>
         </div>
     </div>
-    <script src="login.js"></script>
+    <script src="crearC2.js"></script>
     </form>
   
 </body>
