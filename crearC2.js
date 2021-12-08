@@ -1,10 +1,16 @@
-function funcion(){
-  let select = document.getElementById('select');
-  let opcion = select.value;
+function seleccionar(){
+  let sel = document.getElementById('select');
+  let elegido = sel.value;
 
-  if(opcion == 'value1'){
-  }
-  else if(option == 'value2'){
+  document.getElementById('Seleccionado').innerText = `Ud. ha seleccionado el lenguaje ${elegido}.`;
+}
 
-  }
+function preguntaAbierta(){
+  var textInput = document.createElement('input');
+  textInput.setAttribute('type', 'button');
+  textInput.setAttribute('name', respAbierta);
+  //document.getElementById("titulo").innerHTML = "otro intento";
+}
+document.getElementById("agregar").onclick = function(){
+  preguntaAbierta();
 }
