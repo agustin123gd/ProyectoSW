@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="newCuest.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap " rel = " stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="crearC2.js"></script>
 
 </head>
 <body>
@@ -43,28 +44,34 @@
             <p>
                 <input type="text" style="width:400px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
                 <select name="select" id="select">
+                    <option value="value1" onclick="funcion()">Pregunta abierta</option>
+                    <option value="value2" selected>Opción múltiple</option>
+                </select>
+            <div class="preguntamulti">
+                <p>
+                    <input type="radio" id="r" name="option1" value="Opcion1"> Opción 1<br>
+                    <input type="radio" id="r" name="option2" value="Opcion2"> Opción 2<br>
+                    <input type="radio" id="r" name="option3" value="opcion3"> Opción 3 <br>
+                </p>
+
+            </div>
+            <div class="preguntaabierta">
+                <p>
+                    <input type="text" style="width:370px;height:20px" name="respAbierta" class="form-control" id="respAbierta" placeholder="Escribe aquí la respuesta" required>
+                </p>
+            </div>
+        </div>
+
+        <!-- <div class="contenido">
+            <p>
+                <input type="text" style="width:370px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
+                <select name="select" id="select">
                     <option value="value1">Pregunta abierta</option>
                     <option value="value2" selected>Opción múltiple</option>
                 </select>
             </p>
-            <p>
-                <input type="radio" name="option1" value="Opcion1"> Opción 1<br>
-                <input type="radio" name="option2" value="Opcion2"> Opción 2<br>
-                <input type="radio" name="option3" value="opcion3"> Opción 3 <br>
-            </p>
-            <p>
-                <input type="text" style="width:370px;height:20px" name="respAbierta" class="form-control" id="respAbierta" placeholder="Escribe aquí la respuesta" required>
-            </p>
-        </div>
-
-        <div class="contenido">
-            <p>
-                <input type="text" style="width:370px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
-            </p>
-            <p>
-                <input type="text" style="width:370px;height:20px" name="respAbierta" class="form-control" id="respAbierta" placeholder="Escribe aquí la respuesta" required>
-            </p>
-        </div>
+           
+        </div>  -->
 
         <div class="botones">
             <input type="submit" value="Enviar" class="botones">
@@ -74,5 +81,5 @@
     <script src="login.js"></script>
     </form>
   
-</body>
+</body onload="load();">
 </html>
