@@ -74,6 +74,17 @@ public class App
             AsignacionDAO dao = new AsignacionDAO();
             return gson.toJson(dao.listadoAsignacion(Integer.parseInt(req.queryParams("idCuestionario"))));
         });
+        post("/validarUsuario", (req, res) -> {
+            // Insertamos un nuevo usuario
+            String json = req.body();
+            Usuario usuario = gson.fromJson(json, Usuario.class);
+            
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            int resultado = usuarioDAO.validarUsuario(usuario);
+            System.out.println(resultado);
+            return resultado;
+    
+        });
         
     }
 }

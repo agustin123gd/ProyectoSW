@@ -6,8 +6,9 @@ btnIniciar.addEventListener("click", () => {
     })
     .then(function (res) {
         if(res.data == 1){
-            window.location.replace("/elige.html");
-            alert("Alumno");
+            window.location.replace("/menum.html");
+            alert("Maestro");
+            
         }else if(res.data == 0){
             alert("NO");
         }else if(res.data == -1){

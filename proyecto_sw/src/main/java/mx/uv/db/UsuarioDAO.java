@@ -48,6 +48,42 @@ public class UsuarioDAO {
         return msj;
     }
 
+    public int validarUsuario(Usuario usuario) throws Exception{
+        Statement stm;
+        ResultSet usuarios;
+        String sql = "select * from usuario;";
+        
+        try (Connection conn = conexion.getConnection();){
+            stm = conn.createStatement();
+            usuarios = stm.executeQuery(sql);
+            System.out.println(usuarios);
+            while (usuarios.next()){
+                Usuario u = new Usuario(usuarios.getString("correo"), usuarios.getString("contraseña"), usuarios.getString("tipo"));
+                
+                    if(usuarios.getString("correo").equals(u.getCorreo()) && usuarios.getString("contraseña").equals(u.getContraseña())){
+                        if (usuarios.getString("tipo").equals(u.getTipo())){
+                            System.out.println("BIEN ADENTRO CHAVALEEE");
+                            if (usuarios.getString("tipo").equals(u.getTipo())){
+                                return 1;
+                            }                      
+                        }else{
+                            System.out.println("NO ESTOY ADENTRO");
+                            return 0;
+                        }
+                    }else{
+                        System.out.println("NO ESTOY ADENTRO2");
+                        return 0;
+                    }
+                
+            }
+        }catch (SQLException e) {
+            throw new Exception("Error en readAll SQLException " + e.getMessage());
+        } catch (Exception e) {
+            throw new Exception("Error en readAll Exception " + e.getMessage());
+        }
+        return -1;
+    }
+
     public List<Usuario> listadoUsuario() {
         Statement stm = null;
         ResultSet rs = null;
