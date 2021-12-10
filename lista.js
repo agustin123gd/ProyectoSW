@@ -1,7 +1,7 @@
 var querystring = window.location.search;
 var parametros = new URLSearchParams(querystring);
 
-idCuestionarios= parametros.get("idCuestionario");
+idCuestionarios=parametros.get("idCuestionario");
 nombre = parametros.get("nombre");
 
 axios.get("http://localhost:4567/asignacion?idCuestionario=" + idCuestionarios)
@@ -33,6 +33,7 @@ axios.get("http://localhost:4567/asignacion?idCuestionario=" + idCuestionarios)
         }
     })
     .catch()
+
 function revisarCuestionario(idUsuario,idCuestionario){
     let params = new URLSearchParams();
     params.append("Usuario", idUsuario);
