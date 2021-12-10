@@ -11,22 +11,19 @@ h1 {
     color: black;
 }
 
-.cabecera {
-    background-color: #eba714;
-}
-
 .titulo {
-    text-transform: uppercase;
+    overflow: hidden;
+    width: 70%;
+    max-width: 650px;
+    margin: 25px auto;
+    /*background-color: #ebf55c;*/
+    padding: 10px 0;
     text-align: center;
-    margin-bottom: 30px;
-    color: #FF8F00;
-    font-weight: 300;
-    font-size: 24px;
-    letter-spacing: 1px;
+    font-family: 'Spartan', sans-serif;
 }
 
 ::placeholder {
-    color: blue;
+    color: black;
     font-size: 1.5em;
   }
 
@@ -45,11 +42,23 @@ h1 {
     overflow: hidden;
     color: black;
     width: 70%;
-    max-width: 800px;
+    max-width: 600px;
     border: 5px solid #9bd80c;
     margin: 25px auto;
     /*background-color: #ebf55c;*/
     padding: 10px 0;
-    text-align: center;
+    /*text-align: center;*/
     font-family: 'Spartan', sans-serif;
+}
+
+.preguntamulti{
+    display: block;
+}
+
+.preguntaabierta{
+    display: block;
+}
+
+.botones {
+    text-align: center;
 }
