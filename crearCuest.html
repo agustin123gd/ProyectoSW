@@ -18,15 +18,11 @@
     <header>
     
     <div>
-        <form>
+        <form name="titulos">
             <div class="titulo">
+                <input type="text" style="width:600px;height:60px" name="nomCues" class="form-control" id="nombrecues" placeholder="Título del cuestionario" required>
                 <p>
-                    <div class="opciones">
-                        <input type="text" style="width:600px;height:60px" name="nomCues" class="form-control" id="nombrecues" placeholder="Título del cuestionario" required>
-                       <p>
-                        <input type="text" style="width:600px;height:20px" name="desCues" class="form-control" id="descripcues" placeholder="Descripción del cuestionario" required>
-                       </p>
-                    </div>
+                <input type="text" style="width:600px;height:20px" name="desCues" class="form-control" id="descripcues" placeholder="Descripción del cuestionario" required>
                 </p>
             </div>
         </form>
@@ -66,7 +62,8 @@
 
      <form>
         <div class="botones">
-            <button type="button" id="enviar" class="btn btn-primary btn-lg"> Enviar </button> 
+            <!-- <button type="button" id="enviar" class="btn btn-primary btn-lg"> Enviar </button> -->
+            <input type="submit" value="Enviar" class="botones">
         </div>
         </div>
     </div>
