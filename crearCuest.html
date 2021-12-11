@@ -32,51 +32,39 @@
         </form>
 
        <form>
-           <div class="botones">
-                <button id="agregar" class="btn btn-default">Agregar pregunta</button>
-           </div>
+        <div class="botones" id="btnAgregarMayor1">
+            <button id="btnAgregar1" type="button" onclick="añadirPregunta()">Agregar Pregunta</button>
+        </div>
        </form> 
     </div>
 
     <div>
-    <form>
-        <div class="contenido">
+    <form name="fpreguntas">
+        <div class="contenido" id="principal">
             <p>
                 <input type="text" style="width:400px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
-
-                <select name="select" id="select" onchange="seleccionar();">
-                    <option id="op1" value="abierta">Pregunta abierta</option>
-                    <option id="op2" value="opcionMultiple">Opción múltiple</option>
-                </select>
-                
+                <div class="preguntaa">
+                    <input type="radio" name="pregunta" id="RadioAbierta" onclick="PreguntaAbierta()" checked> Abierta
+                    <input type="radio" name="pregunta" id="RadioCerrada" onclick="PreguntaCerrada()"> Cerrada
+                </div>
                 <span id="Seleccionado"></span>
 
-            <div class="preguntamulti">
-                <p>
-                    <input type="radio" id="radio1" name="radio" value="Opcion1"> Opción 1<br>
-                    <input type="radio" id="radio2" name="radio" value="Opcion2"> Opción 2<br>
-                    <input type="radio" id="radio3" name="radio" value="opcion3"> Opción 3 <br>
-                </p>
-                
+            <div class="preguntamulti" id = "preguntacerrada" style="display:none;">
+                <p> <input type="text" id="resp1" name="resp" placeholder="Escribe la opcion 1"> </p>
+                <p><input type="text" id="resp2" name="resp" placeholder="Escribe la opcion 2"> </p>
+                <p><input type="text" id="resp3" name="resp" placeholder="Escribe la opcion 3"> </p>  
             </div>
-            <div class="preguntaabierta">
+            <div class="preguntaabierta" id = "preguntaabierta" style="display:none;">
                 <p>
                     <input type="text" style="width:370px;height:20px" name="respAbierta" class="form-control" id="respAbierta" placeholder="Escribe aquí la respuesta" required>
                 </p>
             </div>
-        </div>
-
-     <div class="contenido">
-            <p>
-                <input type="text" style="width:370px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
-                <select name="select" id="select">
-                    <option value="value1">Pregunta abierta</option>
-                    <option value="value2" selected>Opción múltiple</option>
-                </select>
             </p>
-           
         </div>
 
+        <div id="ejemplo" class="ejemplo"></div>
+
+     <form>
         <div class="botones">
             <button type="button" id="enviar" class="btn btn-primary btn-lg"> Enviar </button> 
         </div>
