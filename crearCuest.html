@@ -41,9 +41,8 @@
                 <input type="text" style="width:400px;height:20px" name="pregunta" class="form-control" id="titupregunta" placeholder="Pregunta sin título" required>
                 <div class="preguntaa">
                     <input type="radio" name="pregunta" id="RadioAbierta" onclick="PreguntaAbierta()" checked> Abierta
-                    <input type="radio" name="pregunta" id="RadioCerrada" onclick="PreguntaCerrada()"> Cerrada
+                    <input type="radio" name="pregunta" id="RadioCerrada" onclick="PreguntaCerrada()"> Opción Multiple
                 </div>
-                <span id="Seleccionado"></span>
 
             <div class="preguntamulti" id = "preguntacerrada" style="display:none;">
                 <p> <input type="text" id="resp1" name="resp" placeholder="Escribe la opcion 1"> </p>
@@ -63,7 +62,7 @@
      <form>
         <div class="botones">
             <!-- <button type="button" id="enviar" class="btn btn-primary btn-lg"> Enviar </button> -->
-            <input type="submit" value="Enviar" class="botones">
+            <input type="submit" id="enviar" value="Enviar" class="botones">
         </div>
         </div>
     </div>

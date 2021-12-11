@@ -27,59 +27,39 @@ function PreguntaAbierta() {
 }
 
 function añadirPregunta(){
-  let div = document.createElement("div");
-  let input = document.createElement("input");
-  
-  document.body.appendChild(input);
+
+  //Primer div para titulo de pregunta y opciones de pregunta
+  let div = document.createElement("div"); //crear el div
+  let input = document.createElement("input"); //crear el input
+  let radio = document.createElement("input"); //crear radio1
+  let radio2 = document.createElement("input"); //crear radio2
+  //Atributos a los elementos
+  div.className="contenido";
+  input.id="pregunta2";
+  radio.type="radio";
+  radio.value="Abierta";
+  radio2.type="radio";
+  radio2.value="OpcionMultiple";
+  //agregamos los elementos al Div
+  div.appendChild(input);
+  div.appendChild(radio);
+  div.appendChild(radio2);
+
+  //Segundo div para las preguntas opcion multiple
+  let div2 = document.createElement("div");
+  let op1 = document.createElement("input");
+  let op2 = document.createElement("input");
+  let op3 = document.createElement("input");
+  div2.className="preguntamulti";
+  op1.type="radio";
+  op2.type="radio";
+  op3.type="radio";
+
+  div2.appendChild(op1);
+  div2.appendChild(op2);
+  div2.appendChild(op3);
+
+  div.appendChild(div2);
+
+  document.body.appendChild(div);
 }
-
-//creamos una clase para añadir la nueva pregunta
-/*class nuevaPregunta extends HTMLElement {
-  constructor() {
-    //llamar al super constructor
-    super();
-
-    //crear un shadow root
-    var shadow = this.attachShadow({mode: 'open'});
-
-    //crear elementos
-    var info = document.createElement('span');
-    info.setAttribute('class', 'info');
-
-    //coger el contenido del atributo text y ponerlo en el span info
-    var text = this.getAttribute('text');
-    info.textContent = text;
-
-    //crear los estilos Css e incluirlos en el shadow DOM
-    var style = document.createElement('style');
-    style.textContent = '.wrapper {' +
-                              '}' +
-
-                              '.info {' +
-                              'font-size: 0.8rem;' +
-                              'width: 200px;' +
-                              'display: inline-block;' +
-                              'border: 1px solid black;' +
-                              'padding: 10px;' +
-                              'background: white;' +
-                              'border-radius: 10px;' +
-                              'opacity: 0;' +
-                              'transition: 0.6s all;' +
-                              'position: absolute;' +
-                              'bottom: 20px;' +
-                              'left: 10px;' +
-                              'z-index: 3;' +
-                            '}';
-                       
-    //adjuntar los elementos creados al shadow DOM 
-    //notese que el span wrapper contiene los elementos
-
-    shadow.appendChild(this.style);
-    shadow.appendChild(wrapper);
-    shadow.appendChild(info);
-
-  }
-}
-
-//definir nuevo elemento
-customElements.define('nuevaPregunta', nuevaPregunta); */
