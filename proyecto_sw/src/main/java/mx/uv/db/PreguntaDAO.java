@@ -49,7 +49,7 @@ public class PreguntaDAO {
         return msj;
     }
 
-    public List<Pregunta> listadoPregunta() {
+    public List<Pregunta> listadoPregunta(int idCuestionario) {
         Statement stm = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -57,11 +57,11 @@ public class PreguntaDAO {
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT * FROM pregunta";
+            String sql = "SELECT id, tipo, pregunta FROM pregunta Where idCuestionario="+idCuestionario;
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){
-                Pregunta p = new Pregunta(rs.getInt("id"), rs.getInt("idCuestionario"), rs.getString("tipo"), rs.getString("pregunta"));
+                Pregunta p = new Pregunta(rs.getInt("id"), 0, rs.getString("tipo"), rs.getString("pregunta"));
                 resultado.add(p);
             }
         } catch (Exception e) {
