@@ -7,6 +7,7 @@ import mx.uv.db.Asignacion;
 import mx.uv.db.AsignacionDAO;
 import mx.uv.db.CuestionarioDAO;
 import mx.uv.db.RespuestaAlumnoDAO;
+import mx.uv.db.UsuarioDAO;
 import mx.uv.db.Usuario;
 
 /**
@@ -58,22 +59,7 @@ public class App
             return gson.toJson(dao.listadoUsuario());
         });
 
-        get("/resultados",(req,res)->{
-            before((req2, res2) -> res.type("application/json"));
-            RespuestaAlumnoDAO dao = new RespuestaAlumnoDAO();
-            return gson.toJson(dao.listadoRespuestas(Integer.parseInt(req.queryParams("idUsuario")),Integer.parseInt(req.queryParams("idCuestionario"))));
-        });
 
-        get("/cuestionarios",(req,res)->{
-            before((req2, res2) -> res.type("application/json"));
-            CuestionarioDAO dao = new CuestionarioDAO();
-            return gson.toJson(dao.listadoCuestionario());
-        });
-        get("/asignacion",(req,res)->{
-            before((req2, res2) -> res.type("application/json"));
-            AsignacionDAO dao = new AsignacionDAO();
-            return gson.toJson(dao.listadoAsignacion(Integer.parseInt(req.queryParams("idCuestionario"))));
-        });
         post("/validarUsuario", (req, res) -> {
             // Insertamos un nuevo usuario
             String json = req.body();
