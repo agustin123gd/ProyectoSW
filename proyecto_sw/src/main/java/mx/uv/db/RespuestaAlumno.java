@@ -18,6 +18,11 @@ public class RespuestaAlumno {
         this.respuesta = respuesta;
         this.idUsuario = idUsuario;
     }
+    public RespuestaAlumno( int idPregunta, String respuesta, int idUsuario) {
+        this.idPregunta = idPregunta;
+        this.respuesta = respuesta;
+        this.idUsuario = idUsuario;
+    }
     public String getPregunta() {
         return pregunta;
     }

@@ -4,25 +4,26 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RespuestaAlumnoDAO {
+import java.sql.Statement;
+
+public class VideoDao {
     private Conexion conexion = new Conexion();
 
-    public String insertarRespuestaAlumno(RespuestaAlumno ra) {
+    public String insertarVideo(Video vi) {
         Connection conn = null;
         PreparedStatement prestm = null;
         String msj = "";
 
         conn = conexion.getConnection();
         try {
-            String sql = "INSERT INTO respuestaAlumno (idPregunta, respuesta, idUsuario) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO video (idUsuario, idCuestionario, video) VALUES (?, ?, ?)";
             prestm = conn.prepareStatement(sql);
-            prestm.setInt(1, ra.getIdPregunta());
-            prestm.setString(2, ra.getRespuesta());
-            prestm.setInt(3, ra.getIdUsuario());
+            prestm.setInt(1, vi.getIdUsuario());
+            prestm.setInt(2, vi.getIdCuestionario());
+            prestm.setString(3, vi.getVideo());
             if (prestm.executeUpdate() >0) 
                 msj = "Usuario agregado";
             else
@@ -47,19 +48,21 @@ public class RespuestaAlumnoDAO {
         return msj;
     }
 
-    public List<RespuestaAlumno> listadoRespuestas( int idUsuario,int idCuestionario) {
+    
+
+    public List<Video> listadoVideos( int idUsuario,int idCuestionario) {
         Statement stm = null;
         ResultSet rs = null;
         Connection conn = null;
-        List<RespuestaAlumno> resultado = new ArrayList<>(); 
+        List<Video> resultado = new ArrayList<>(); 
 
         conn = conexion.getConnection();
         try {
-            String sql = "SELECT pregunta.pregunta, respuesta FROM respuestaAlumno inner join pregunta on respuestaAlumno.idPregunta = pregunta.id where idUsuario="+ idUsuario +" and idCuestionario="+idCuestionario;
+            String sql = "SELECT video FROM video where idUsuario="+ idUsuario +" and idCuestionario="+idCuestionario;
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()){
-                RespuestaAlumno ra = new RespuestaAlumno(rs.getString("pregunta"), rs.getString("respuesta"));
+                Video ra = new Video(idUsuario, idCuestionario, rs.getString(1));
                 resultado.add(ra);
             }
         } catch (Exception e) {

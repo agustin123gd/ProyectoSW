@@ -12,9 +12,13 @@
     <div id="preguntas">
 
     </div>
-    <a style="float: right; margin-right: 5%; margin-top: 5%;" type="button"  id="entregar" href='' class="btn btn-success">Entregar</a>
+    <a style="float: right; margin-right: 5%; margin-top: 5%;" type="button"  id="entregar" onclick="guardar()" class="btn btn-success">Entregar</a>
+    <button type="button" id="grabar">Grabar</button> 
+    <button type="button" id="detener">Detener</button>
+    <video id="camara" width="20%"></video>
     
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="contestar.js"></script>
+    <script src="grabar.js"></script>
 </body>
 </html>
